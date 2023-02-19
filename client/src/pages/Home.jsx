@@ -28,8 +28,10 @@ const Home = () => {
         const response = await fetch("http://localhost:8080/api/v1/post", {
           method: "GET",
           headers: {
-            "Content-Type": "application/json",
-          },
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${import.meta.env.OPENAI_API_KEY}`,
+            'OpenAI-Organization': `${import.meta.env.OPENAI_ORGANIZATION_ID}`
+        },
         });
 
         if (response.ok) {
